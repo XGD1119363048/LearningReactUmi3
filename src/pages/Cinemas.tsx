@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { NavBar } from 'antd-mobile'
+import { NavBar, DotLoading } from 'antd-mobile'
 import { SearchOutline } from 'antd-mobile-icons'
 import { connect, useHistory } from 'umi'
 
@@ -17,7 +17,7 @@ function Cinemas(props: any) {
       console.log('缓存')
     }
   }, [])
-  
+
   return (
     <div>
       <NavBar
@@ -34,7 +34,13 @@ function Cinemas(props: any) {
         backArrow={false}
         right={<SearchOutline />}
       >标题</NavBar>
-      
+
+      {
+        props.loading && <div style={{ fontSize: 14, textAlign: 'center' }}>
+          <DotLoading />
+        </div>
+      }
+
       <ul>
         {
           props.list.map((item: any) => <li key={item.cinemaId}>
@@ -52,6 +58,7 @@ export default connect((state: any) => {
     a: 1,
     cityName: state.city.cityName,
     cityId: state.city.cityId,
-    list: state.cinemas.list
+    list: state.cinemas.list,
+    loading: state.loading.global
   }
 })(Cinemas)
