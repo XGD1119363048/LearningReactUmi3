@@ -1,9 +1,8 @@
-import styles from './index.less';
+import React from 'react'
+import { Redirect } from 'umi'
 
-export default function IndexPage() {
+export default function Index() {
   return (
-    <div>
-      <h1 className={styles.title}>Page index</h1>
-    </div>
-  );
+    <Redirect to='/films' />
+  )
 }
