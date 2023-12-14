@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { IndexBar, List } from 'antd-mobile'
-import { useHistory } from 'umi'
+import { connect, useHistory } from 'umi'
 
-export default function City() {
+function City(props: any) {
   const [list, setList] = useState<any>([])
 
   const filterCity = (cities: any) => {
@@ -42,6 +42,15 @@ export default function City() {
   const changeCity = (item: any) => {
     console.log(item.name, item.cityId)
 
+    // 修改 store state 中的状态
+    props.dispatch({
+      type: 'city/changeCity',
+      payload: {
+        cityName: item.name,
+        cityId: item.cityId
+      }
+    })
+
     history.push('/cinemas')
   }
 
@@ -68,3 +77,5 @@ export default function City() {
     </div>
   )
 }
+
+export default connect(() => ({}))(City)
