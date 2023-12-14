@@ -18,5 +18,9 @@ export default defineConfig({
       target: 'https://i.maoyan.com',
       changeOrigin: true
     }
+  },
+
+  antd: {
+    mobile: false
   }
 });
