@@ -8,7 +8,7 @@ export default {
 
   reducers: {
     changeCity(prevState: any, action: any) {
-      console.log(action)
+      // console.log(action)
       return {
         ...prevState,
         cityName: action.payload.cityName,

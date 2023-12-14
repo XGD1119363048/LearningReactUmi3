@@ -40,7 +40,7 @@ function City(props: any) {
   const history = useHistory()
 
   const changeCity = (item: any) => {
-    console.log(item.name, item.cityId)
+    // console.log(item.name, item.cityId)
 
     // 修改 store state 中的状态
     props.dispatch({
